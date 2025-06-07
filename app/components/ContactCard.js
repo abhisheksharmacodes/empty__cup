@@ -16,11 +16,6 @@ const ContactCard = ({
   onDetails, onHide, onShortlist, onReport, isShortlisted
 }) => {
 
-  useEffect(() => {
-    // console.log('Card:', { name, rating });
-    // 3.5      1 2 3 4 5    4
-  }, []);
-
   const showStars = () => (
     <div className="flex items-center mb-2">
       {[1, 2, 3, 4, 5].map(i => (
@@ -72,7 +67,7 @@ const ContactCard = ({
         <button
           onClick={onDetails}
           className="flex flex-col cursor-pointer items-center text-[#B47B5B] hover:text-[#8c5e3c] focus:outline-none"
-          style={{ padding: '4px' }} // mixing styles
+          style={{ padding: '4px' }}
         >
           <Image src={detailsIcon} alt="Details" width={17} height={17} />
           <span className="text-[11px] mt-2 font-medium">Details</span>
