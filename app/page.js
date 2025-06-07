@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/listings');
+        const response = await fetch('https://empty-cup-back-new-2.vercel.app/api/listings');
         if (!response.ok) {
           throw new Error('Failed to fetch listings');
         }
@@ -56,7 +56,7 @@ export default function Home() {
       <div className="flex items-center justify-between p-7 border-b border-[#F5E9D6] bg-white sticky top-0 z-10">
         <Image src={logoIcon} alt="Logo" width={44} height={44} />
         <span className="text-[34px] text-[#888] text-[#716966] tracking-wide font-bold">EmptyCup</span>
-        <Image src={menuIcon} alt="Menu" width={44} height={44} />
+        <Image src={menuIcon} alt="Menu" width={40} height={40} />
       </div>
 
       {/* Tab Bar */}
