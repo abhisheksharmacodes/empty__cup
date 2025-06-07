@@ -15,11 +15,9 @@ const ContactCard = ({
   name, rating, description, projects, years, price, phones,
   onDetails, onHide, onShortlist, onReport, isShortlisted
 }) => {
-  // const [debugMode, setDebugMode] = useState(false); // might need this later
-  const [hovered, setHovered] = useState(false); // for hover effects
 
   useEffect(() => {
-    // console.log('Card:', { name, rating }); // debugging
+    // console.log('Card:', { name, rating });
     // 3.5      1 2 3 4 5    4
   }, []);
 
@@ -32,7 +30,7 @@ const ContactCard = ({
           alt={i < rating ? 'Filled Star' : 'Outline Star'}
           width={26}
           height={26}
-          style={{ marginRight: '2px' }} // mixing styles
+          style={{ marginRight: '2px' }}
         />
       ))}
     </div>
@@ -40,7 +38,7 @@ const ContactCard = ({
 
   return (
     <section className="bg-[#FFFCF5] border border-[#F5E9D6] shadow-sm flex flex-row items-stretch px-6 py-6">
-      {/* main content */}
+
       <div className="flex-1 pr-6 gap-4 flex flex-col justify-start">
         <div className="flex flex-col gap-2">
           <div>
@@ -69,9 +67,7 @@ const ContactCard = ({
           ))}
         </div>
       </div>
-      {/* divider */}
       <div className="w-px bg-[#E9DCC3] mx-6" />
-      {/* action buttons */}
       <nav className="flex flex-col items-center justify-center gap-6 min-w-[80px] pl-2" aria-label="Contact actions">
         <button
           onClick={onDetails}
@@ -84,8 +80,6 @@ const ContactCard = ({
         <button
           onClick={onHide}
           className="flex flex-col items-center cursor-pointer text-[#B47B5B] hover:text-[#8c5e3c] focus:outline-none"
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
         >
           <Image src={hideIcon} alt="Hide" width={34} height={34} />
           <span className="text-[11px] mt-2 font-medium">Hide</span>

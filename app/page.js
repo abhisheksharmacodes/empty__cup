@@ -55,7 +55,7 @@ export default function Home() {
       {/* Nav Bar */}
       <div className="flex items-center justify-between p-7 border-b border-[#F5E9D6] bg-white sticky top-0 z-10">
         <Image src={logoIcon} alt="Logo" width={44} height={44} />
-        <span className="text-[34px] text-[#888] text-[#716966] tracking-wide font-bold">EmptyCup</span>
+        <span className="text-[34px] text-[#716966] tracking-wide font-bold">EmptyCup</span>
         <Image src={menuIcon} alt="Menu" width={40} height={40} />
       </div>
 
