@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import starFilled from '../assets/star-filled.svg';
-import starOutline from '../assets/star-outline.svg';
+import starHalf from '../assets/star_half.svg';
+import starOutline from '../assets/star_outlined.svg';
 import detailsIcon from '../assets/details.svg';
 import hideIcon from '../assets/hide.svg';
 import shortlistIcon from '../assets/shortlisted.svg';
@@ -19,16 +20,16 @@ const ContactCard = ({
 
   useEffect(() => {
     // console.log('Card:', { name, rating }); // debugging
+    // 3.5      1 2 3 4 5    4
   }, []);
 
-  // quick star renderer
   const showStars = () => (
     <div className="flex items-center mb-2">
       {[1, 2, 3, 4, 5].map(i => (
         <Image
           key={i}
-          src={i <= rating ? starFilled : starOutline}
-          alt={i <= rating ? 'Filled Star' : 'Outline Star'}
+          src={i <= rating ? starFilled : (i - 0.5 == rating ? starHalf : starOutline)}
+          alt={i < rating ? 'Filled Star' : 'Outline Star'}
           width={26}
           height={26}
           style={{ marginRight: '2px' }} // mixing styles
@@ -49,15 +50,15 @@ const ContactCard = ({
           <div className="text-base text-sm text-black mb-4 leading-snug">{description}</div>
         </div>
         <div className="flex gap-10 mb-4">
-          <div className="text-center">
+          <div className="text-center leading-8">
             <div className="font-bold text-[32px] text-black">{projects}</div>
             <div className="text-sm text-black">Projects</div>
           </div>
-          <div className="text-center">
+          <div className="text-center leading-8">
             <div className="font-bold text-[32px] text-black">{years}</div>
             <div className="text-sm text-black">Years</div>
           </div>
-          <div className="text-center">
+          <div className="text-center leading-8">
             <div className="font-bold text-[32px] text-black">{price}</div>
             <div className="text-sm text-black">Price</div>
           </div>
@@ -72,16 +73,16 @@ const ContactCard = ({
       <div className="w-px bg-[#E9DCC3] mx-6" />
       {/* action buttons */}
       <nav className="flex flex-col items-center justify-center gap-6 min-w-[80px] pl-2" aria-label="Contact actions">
-        <button 
-          onClick={onDetails} 
+        <button
+          onClick={onDetails}
           className="flex flex-col cursor-pointer items-center text-[#B47B5B] hover:text-[#8c5e3c] focus:outline-none"
           style={{ padding: '4px' }} // mixing styles
         >
           <Image src={detailsIcon} alt="Details" width={17} height={17} />
           <span className="text-[11px] mt-2 font-medium">Details</span>
         </button>
-        <button 
-          onClick={onHide} 
+        <button
+          onClick={onHide}
           className="flex flex-col items-center cursor-pointer text-[#B47B5B] hover:text-[#8c5e3c] focus:outline-none"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
@@ -91,22 +92,22 @@ const ContactCard = ({
         </button>
         {isShortlisted && (
           <button onClick={onShortlist} className="flex flex-col items-center text-[#B47B5B] cursor-pointer hover:text-[#8c5e3c] focus:outline-none">
-            <Image 
-              src={shortlistIcon} 
-              alt="Shortlisted" 
-              width={26} 
-              height={26} 
+            <Image
+              src={shortlistIcon}
+              alt="Shortlisted"
+              width={26}
+              height={26}
             />
             <span className="text-[11px] mt-2 font-medium">Shortlist</span>
           </button>
         )}
         {!isShortlisted && (
           <button onClick={onShortlist} className="flex flex-col items-center text-[#B47B5B] cursor-pointer hover:text-[#8c5e3c] focus:outline-none">
-            <Image 
-              src={notShortlistIcon} 
-              alt="Not Shortlisted" 
-              width={26} 
-              height={26} 
+            <Image
+              src={notShortlistIcon}
+              alt="Not Shortlisted"
+              width={26}
+              height={26}
             />
             <span className="text-[11px] mt-2 font-medium">Shortlist</span>
           </button>
